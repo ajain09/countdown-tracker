@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <title>Conference Deadlines | Ben Lengerich</title>
+    <meta name="viewport" content="width=device-width">
+    <script src="https://use.typekit.net/wxk8bwy.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <link rel="stylesheet" href="./css/grid.css" type="text/css">
+    <link rel="stylesheet" href="./css/main.css">
+
+<style type="text/css">
+/* Some resetting */
+body {
+  font-family: Verdana, Helvetica, sans-serif;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  color: #222;
+}
+/* Main content div */
+#surround {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  width: 710px;
+  background-color: white;
+}
+/* Div that contains all deadlines */
+#deadlinesdiv {
+}
+#currtime {
+  font-size: 14px;
+}
+#bottompart {
+  text-align: center;
+}
+/* Page title */
+h1 {
+  display: inline;
+  margin-right: 10px;
+  font-size: 35px;
+}
+/* Maintained by @karpathy */
+#signature {
+  position: absolute;
+  bottom: auto;
+  right: 0;
+  text-align: center;
+  padding-bottom: 15px;
+  padding-right: 30px;
+  /*font-size: 14px;*/
+}
+/* The cells that contain each deadline */
+.dd {
+  padding: 10px;
+  margin-bottom: 3px;
+  background-color: #EEE;
+  border: 1px solid #DDD;
+  cursor: pointer;
+  position: relative;
+}
+.dd:hover {
+  background-color: #DDD;
+  border: 1px solid #AAA;
+  cursor: default;
+}
+/* Time left description div */
+.tld {
+  float: right;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 16px;
+}
+/* Area description div */
+.ad {
+  font-family: monospace;
+}
+/* Time description div */
+.td {
+}
+/* Venue description div */
+.vd {
+  font-weight: bold;
+  font-size: 16px;
+}
+/* Warning div */
+.wd {
+  position: absolute;
+  bottom: 10px;
+  right: 8px;
+  color: #700;
+  font-size: 10px;
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+
+<script type="text/javascript" src="js/conferences_db.js"></script>
+
+</head>
+<body>
+  <div id="wrap">
+    <div id="header"></div>
+    <article style="text-align:left;">
+      <div id="surround">
+        <h1>CompSci Conference Deadlines</h1>
+        <br /><br />
+        <span style="color: #ff0000"><strong>LIVE</strong></span> Conference Deadlines for all top conferences for different domains in Computer Science. Track this page to stay on track and apply to the conferences. For conferences with an abstract required before the full paper, the abstract deadline is listed.
+        <br /><br />
+        <div id="currtime"></div>
+        <br />
+        Algorithms:<input type="checkbox" id="Machine Learning" name="ml" onclick="" checked>
+        NLP:<input type="checkbox" id="Machine Learning" name="ml" onclick="" checked>
+        Software Eng:<input type="checkbox" id="Machine Learning" name="ml" onclick="" checked>
+
+        Machine Learning:<input type="checkbox" id="Machine Learning" name="ml" onclick="" checked>
+        AI:<input type="checkbox" id="AI"  onclick="" name="ai" checked>
+        Computational Biology:<input type="checkbox" id="Computational Biology" name="cb" onclick="" checked>
+        Healthcare:<input type="checkbox" id="Healthcare"  onclick="" name="hc" checked>
+        Linguistics:<input type="checkbox" id="Linguistics"  onclick="" name="lin" checked>
+        <br /><br />
+        <div id="deadlinesdiv"></div>
+        <br />
+      </div>
+      <div id="signature">
+        If you wish a specific conference to be tracked as well, email us at team@opengenus.org.
+      </div>
+    </article>
+  </div>
+  <!--#include file="footer.html" -->
+
+</body>
+</html>
+
