@@ -111,7 +111,7 @@ var shouldDisplay = {"Machine Learning": true,
                     "Computational Biology": true,
                     "Healthcare": true,
                     "Linguistics": false};
-
+                   
 // HELPER FUNCTIONS
 var timeDescription = function(x) {
   return x.format("MM/DD/YYYY h:mm:ss A");
@@ -127,20 +127,24 @@ var timeLeftDescription = function(t) {
   var hours = Math.floor(thours) % 24;
   var tdays = thours / 24;
   var days = Math.floor(tdays);
-  return days + " days, " + hours + "h " + minutes + "m " + seconds + "s";
+
+  return [days, (days + " days, " + hours + "h " + minutes + "m " + seconds + "s")];
 };
 
 // Display function, called every second or so
 function refreshDisplay() {
   var d = moment();
   $("#currtime").text("Current time: " + timeDescription(d));
-
+  
   // calculate and display deadlines
   for(var i=0; i<deadlines.length; i++) {
     var dl= deadlines[i];
     var checkBox = document.getElementById(dl.area);
     if (checkBox.checked === true) {
-      var timeLeft= dl.deadline - d;
+
+      var result = timeLeftDescription(dl.deadline - d);
+      var daysLeft = result[0]
+      var timeLeft = result[1];
       warningString= "";
       if (dl.approx) { warningString= "based on previous year!"; }
       prefix = "";
@@ -149,15 +153,21 @@ function refreshDisplay() {
         prefix = "<a class=\"sd\" href=\"" + dl.website + "\">";
         suffix = "</a>";
       }
+      var color = "var(--after-month)";
+      if(daysLeft < 7) color = 'var(--within-week)';
+      if(daysLeft >= 7 && daysLeft < 30) color = 'var(--within-month)';
+      // console.log(daysLeft + " " + color)
 
       $("#deadline" + i).html(
-        prefix + "<div class=\"tld\">" + timeLeftDescription(timeLeft) + "</div>"
+        prefix + "<div class=\"tld\">" + timeLeft + "</div>"
                + "<div class=\"vd\">" + dl.venue + "</div>"
                + "<div class=\"ad\">" + dl.area + "</div>"
                + "<div class=\"td\">Deadline: " + timeDescription(dl.deadline) + "</div>"
                + "<div class=\"wd\">" + warningString + "</div>"
                + suffix
       );
+
+      $("#deadline" + i).css("background", color);
       $("#deadline" + i).show();
     } else {
       $("#deadline" + i).hide();
