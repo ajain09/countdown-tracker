@@ -19,6 +19,12 @@
   Note: IE6 works fine without this fix.
 */
 
+:root{
+    --within-week: linear-gradient(to right, #fb5454 0%, #f8caca 51%, #fb4848 100%);
+    --within-month: linear-gradient(to right, #f7e142 0%, #e7f2b4 51%, #dffd57 100%);
+    --after-month: linear-gradient(to right, #3fe77d 0%, #b4f2b5 51%, #53ea8a 100%);
+}
+
 body {
   min-width: 960px;
 }
