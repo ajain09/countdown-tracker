@@ -133,6 +133,8 @@ var timeLeftDescription = function(t) {
 
 // Display function, called every second or so
 function refreshDisplay() {
+  var eventsMissed = 0;
+  var maxTime = 0;
   var d = moment();
   $("#currtime").text("Current time: " + timeDescription(d));
   
@@ -141,10 +143,15 @@ function refreshDisplay() {
     var dl= deadlines[i];
     var checkBox = document.getElementById(dl.area);
     if (checkBox.checked === true) {
-
       var result = timeLeftDescription(dl.deadline - d);
       var daysLeft = result[0]
       var timeLeft = result[1];
+      if(dl.deadline < d) {
+        eventsMissed++;
+        var daysGone = timeLeftDescription(d - dl.deadline)[0];
+        maxTime = Math.max(maxTime, daysGone);
+        // console.log(daysGone);
+      }
       warningString= "";
       if (dl.approx) { warningString= "based on previous year!"; }
       prefix = "";
@@ -156,7 +163,7 @@ function refreshDisplay() {
       var color = "var(--after-month)";
       if(daysLeft < 7) color = 'var(--within-week)';
       if(daysLeft >= 7 && daysLeft < 30) color = 'var(--within-month)';
-      // console.log(daysLeft + " " + color)
+      if(daysLeft >= 30 && daysLeft < 90) color = 'var(--within-3months)';
 
       $("#deadline" + i).html(
         prefix + "<div class=\"tld\">" + timeLeft + "</div>"
@@ -172,6 +179,12 @@ function refreshDisplay() {
     } else {
       $("#deadline" + i).hide();
     }
+  }
+  if(eventsMissed > 0){
+    var numMonths = Math.ceil(maxTime / 30);
+    var s = numMonths == 1 ? "month" : "months";
+    // if(maxTime > 30)
+    $("#missed-events").text("You missed " + eventsMissed + " events in last " + numMonths + " " + s + ". Bookmark this page (Ctrl + D) to avoid missing more events.");
   }
 }
 
