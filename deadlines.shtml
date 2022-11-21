@@ -129,6 +129,8 @@ h1 {
         Healthcare:<input type="checkbox" id="Healthcare"  onclick="" name="hc" checked>
         Linguistics:<input type="checkbox" id="Linguistics"  onclick="" name="lin" checked>
         <br /><br />
+        <div id = "missed-events"></div>
+        <br /><br />
         <div id="deadlinesdiv"></div>
         <br />
       </div>

@@ -21,8 +21,9 @@
 
 :root{
     --within-week: linear-gradient(to right, #fb5454 0%, #f8caca 51%, #fb4848 100%);
-    --within-month: linear-gradient(to right, #f7e142 0%, #e7f2b4 51%, #dffd57 100%);
+    --within-3months: linear-gradient(to right, #fbe85d 0%, #e7f2b4 51%, #fdfa57 100%);
     --after-month: linear-gradient(to right, #3fe77d 0%, #b4f2b5 51%, #53ea8a 100%);
+	--within-month: linear-gradient(to right, #e7ba3f 0%, #f3e2bf 51%, #efce4b 100%);
 }
 
 body {
