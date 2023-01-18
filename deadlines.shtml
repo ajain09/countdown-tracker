@@ -122,7 +122,8 @@ h1 {
         Algorithms:<input type="checkbox" id="Machine Learning" name="ml" onclick="" checked>
         NLP:<input type="checkbox" id="Machine Learning" name="ml" onclick="" checked>
         Software Eng:<input type="checkbox" id="Machine Learning" name="ml" onclick="" checked>
-
+        Competitive Programming Contest: <input type="checkbox" id="Competitive Programming Contest" name="cp" onclick="" checked>
+        Hackathon:<input type="checkbox" id="Hackathon" name="hackathon" onclick="" checked>
         Machine Learning:<input type="checkbox" id="Machine Learning" name="ml" onclick="" checked>
         AI:<input type="checkbox" id="AI"  onclick="" name="ai" checked>
         Computational Biology:<input type="checkbox" id="Computational Biology" name="cb" onclick="" checked>
